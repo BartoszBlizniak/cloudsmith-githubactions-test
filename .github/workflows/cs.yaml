@@ -16,5 +16,5 @@ jobs:
           owner: bart-demo-org
           repo: api-test
           republish: "true" # needed ONLY if version is not changing
-          file: "test/fixture/cloudsmith-nuget-example.1.0.0.nupkg" #real file that will repeat versions
-          symbols-file: "test/fixture/cloudsmith-nuget-example.1.0.0.snupkg"
+          file: "cloudsmith-nuget-example.1.0.0.nupkg" #real file that will repeat versions
+          symbols-file: "cloudsmith-nuget-example.1.0.0.snupkg"
