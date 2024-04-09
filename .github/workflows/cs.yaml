@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Raw Push
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v1
       - name: Push
         id: push
-        uses: BartoszBlizniak/action@master
+        uses: cloudsmith-io/action@master
         with:
           api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
           command: "push"
