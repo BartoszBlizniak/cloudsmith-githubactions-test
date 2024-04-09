@@ -10,13 +10,10 @@ jobs:
         id: push
         uses: cloudsmith-io/action@master
         with:
-          api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
-          command: "push"
-          format: "raw"
-          owner: "bart-demo-org" # Your Cloudsmith account name or org name (namespace)
-          repo: "api-test" # Your Cloudsmith Repository name (slug)
-          file: "hello.txt" # Name of file
-          name: "hello" # Name for Raw package
-          summary: "SUMMARY" # Optional Summary for Raw Package
-          description: "DESCRIPTION" # Optional description for Raw package
-          version: "v1"
+          api-key: ${{ secrets.CLOUDSMITH_WRITER_KEY }}
+          command: push
+          format: nuget
+          owner: diligent
+          repo: gsv
+          republish: true
+          file: Realm.11.5.0.nupkg
