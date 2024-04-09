@@ -1,0 +1,36 @@
+name: OpenID Connect Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions with OpenID Connect 🚀
+on: [push]
+
+permissions:
+  id-token: write
+
+jobs:
+  test-openid-connect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get OIDC Token
+        run: |
+          value=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq '.value')
+          echo "$value"
+          token=$(curl -X POST -H "Content-Type: application/json" -d "{\"oidc_token\":$value, \"service_slug\":\"oidc-service\"}" https://api.cloudsmith.io/openid/bart-demo-org/ | jq -r '.token')
+          echo "BTOKEN=Bearer $token" >> $GITHUB_ENV
+          echo "OIDC_TOKEN=$token" >> $GITHUB_ENV
+
+      - name: Validate token in Cloudsmith
+        run: |
+          curl --request GET --url https://api.cloudsmith.io/v1/user/self/ --header "X-Api-Key: $BTOKEN" --header 'accept: application/json'
+
+      - uses: actions/checkout@v2
+      - name: Push
+        id: push
+        uses: cloudsmith-io/action@master
+        with:
+          api-key: $OIDC_TOKEN
+          command: "push"
+          format: "npm"
+          owner: "bart-demo-org"
+          repo: "api-test-2"
+          tags: "latest, new-tag, squad-test-squad, application-test-app"
+          republish: true
+          file: files/node-20.8.9.tgz
