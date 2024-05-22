@@ -13,7 +13,7 @@ jobs:
         run: |
           value=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq '.value')
           echo "$value"
-          token=$(curl -X POST -H "Content-Type: application/json" -d "{\"oidc_token\":$value, \"service_slug\":\"devops-cicd-zrdz\"}" https://api.cloudsmith.io/openid/aa-tf-demo/ | jq -r '.token')
+          token=$(curl -X POST -H "Content-Type: application/json" -d "{\"oidc_token\":$value, \"service_slug\":\"devops-cicd-u39c\"}" https://api.cloudsmith.io/openid/aa-tf-demo/ | jq -r '.token')
           echo "BTOKEN=Bearer $token" >> $GITHUB_ENV
           echo "OIDC_TOKEN=$token" >> $GITHUB_ENV
 
