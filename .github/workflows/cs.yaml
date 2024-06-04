@@ -21,7 +21,7 @@ jobs:
         run: |
           curl --request GET --url https://api.cloudsmith.io/v1/user/self/ --header "X-Api-Key: $BTOKEN" --header 'accept: application/json'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Push
         id: push
         uses: BartoszBlizniak/action@master
