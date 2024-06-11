@@ -26,6 +26,7 @@ jobs:
         id: push
         uses: BartoszBlizniak/action@master
         with:
+          use-executable: false
           api-key: $OIDC_TOKEN
           command: "push"
           format: "npm"
