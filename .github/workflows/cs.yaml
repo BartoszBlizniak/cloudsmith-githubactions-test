@@ -7,7 +7,7 @@ permissions:
 
 jobs:
   test-openid-connect:
-    runs-on: macos-12
+    runs-on: macos-latest
     steps:
       - name: Get OIDC Token
         run: |
