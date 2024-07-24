@@ -7,7 +7,7 @@ permissions:
 
 jobs:
   test-openid-connect:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Get OIDC Token
         run: |
@@ -33,4 +33,4 @@ jobs:
           repo: "api-test"
           tags: "latest, new-tag, squad-test-squad, application-test-app"
           republish: true
-          file: files/*.tgz
+          file: "files/*.tgz"
