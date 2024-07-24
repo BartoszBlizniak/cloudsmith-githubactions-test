@@ -33,4 +33,4 @@ jobs:
           repo: "api-test"
           tags: "latest, new-tag, squad-test-squad, application-test-app"
           republish: true
-          file: files/node-20.8.9.tgz
+          file: files/*.tgz
