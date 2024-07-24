@@ -32,5 +32,5 @@ jobs:
           owner: "bart-demo-org"
           repo: "api-test"
           tags: "latest, new-tag, squad-test-squad, application-test-app"
-          republish: true
+          republish: "true"
           file: "files/*.tgz"
