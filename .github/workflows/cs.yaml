@@ -21,6 +21,7 @@ jobs:
 
       - name: Test
         run: |
+          pip list
           cloudsmith ls pkgs bart-demo-org/api-test --page-size 1 --page 1
 
 
