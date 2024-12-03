@@ -19,12 +19,15 @@ jobs:
           oidc-service-slug: 'teemo'
           oidc-auth-only: true
 
-      - name: Test
+      - name: Test OIDC Auth
         run: |
           curl --request GET \
               --url https://api.cloudsmith.io/v1/user/self/ \
               --header "X-Api-Key: $CLOUDSMITH_API_KEY" \
               --header 'accept: application/json'
+      - name: Test CLI
+        run: |
+          cloudsmith whoami
 
 
 
