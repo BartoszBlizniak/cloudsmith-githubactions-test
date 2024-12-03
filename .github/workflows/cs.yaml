@@ -13,16 +13,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Cloudsmith CLI
-        uses: cloudsmith-io/cloudsmith-cli-action@v1.0.0
+        uses: cloudsmith-io/cloudsmith-cli-action@ceng-437-gha-allow-oidc-auth-only-without-installation
         with:
           oidc-namespace: 'bart-demo-org'
           oidc-service-slug: 'teemo'
-          pip-install: true
+          oidc-auth-only: true
 
       - name: Test
         run: |
-          pip list
-          cloudsmith ls pkgs bart-demo-org/api-test --page-size 1 --page 1
+          curl --request GET \
+              --url https://api.cloudsmith.io/v1/user/self/ \
+              --header "X-Api-Key: $CLOUDSMITH_API_KEY" \
+              --header 'accept: application/json'
 
 
 
