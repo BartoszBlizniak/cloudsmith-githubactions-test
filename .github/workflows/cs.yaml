@@ -17,7 +17,7 @@ jobs:
         with:
           oidc-namespace: 'bart-demo-org'
           oidc-service-slug: 'teemo'
-          oidc-auth-only: false
+          oidc-auth-only: true
 
       - name: Test OIDC Auth
         run: |
