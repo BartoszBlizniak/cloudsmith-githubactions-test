@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Cloudsmith CLI
+      - name: Fail Install Cloudsmith CLI
         uses: cloudsmith-io/cloudsmith-cli-action@ceng-437-gha-allow-oidc-auth-only-without-installation
         with:
           oidc-namespace: 'bart-demo-org'
