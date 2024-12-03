@@ -6,7 +6,7 @@ permissions:
   id-token: write
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
 
     steps:
       - name: Checkout code
@@ -17,8 +17,7 @@ jobs:
         with:
           oidc-namespace: 'bart-demo-org'
           oidc-service-slug: 'teemo'
-          oidc-auth-only: false
-          pip-install: true
+          oidc-auth-only: true
 
       - name: Test OIDC Auth
         run: |
