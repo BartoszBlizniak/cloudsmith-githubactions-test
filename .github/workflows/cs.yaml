@@ -25,7 +25,7 @@ jobs:
               --url https://api.cloudsmith.io/v1/user/self/ \
               --header "X-Api-Key: $CLOUDSMITH_API_KEY" \
               --header 'accept: application/json'
-      - name: Test CLI
+      - name: Test CLI again
         run: |
           cloudsmith whoami
 
