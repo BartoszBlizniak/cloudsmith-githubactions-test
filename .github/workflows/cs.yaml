@@ -17,7 +17,8 @@ jobs:
         with:
           oidc-namespace: 'bart-demo-org'
           oidc-service-slug: 'teemo'
-          oidc-auth-only: true
+          oidc-auth-only: false
+          pip-install: true
 
       - name: Test OIDC Auth
         run: |
