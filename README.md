@@ -1,3 +1,3 @@
 Test
 
-[Cloudsmith](https://cloudsmith.io/~cloudsmith/repos/cli/packages/)
+[Cloudsmith](https://cloudsmith.io/~cloudsmith/repos/cli/packages)
